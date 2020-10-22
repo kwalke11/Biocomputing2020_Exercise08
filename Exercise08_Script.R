@@ -9,7 +9,6 @@ for (i in 1:nrow(scores)){
         cm_scores$MSU_Score <- cumsum(scores$score[i])
       }
 }
-    
 UW_scores
 MSU_scores <- data.frame("time"=scores$time[scores$team=="MSU"], "MSU_Score"=cumsum(scores$score[scores$team=="MSU"]), "UW_Score")
 MSU_scores
