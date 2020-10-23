@@ -10,27 +10,23 @@ lines(x=UW_scores$time, y=UW_scores$UW_Score, col ="red") #add a red line with U
 # start of problem #2
 x <- sample(1:100, 1) #choose a random number
 cat("I am thinking of a number 1-100...") #start game with instructions
-guess = 0
-guess <- as.integer(readline(prompt="Enter a guess: "))
-correct_guess = FALSE
-attempts = 0
+guess = 0 #create variable for the guess number
+guess <- as.integer(readline(prompt="Guess: ")) #allow entry of guess
+correct_guess = FALSE #create variable that sets guess as false in order to repeat prompt for user to guess if guess is false 
+attempts = 0 #create variable for the number of attempts
 
-while (correct_guess == FALSE){
-      if(attempts > 10){
-        print("You have entered too many guesses")
-        break
-      }else if (guess > x){
-        print("LOWER")
-        attempt = attempts + 1
-        guess <- as.integer(readline(prompt="Enter another guess: "))
-      }else if (guess < x){
-        print("HIGHER")
-        attempt = attempts + 1
-        guess <- as.integer(readline(prompt="Enter another guess: "))
-      }else{
-        print("Your guess was correct")
-        correct_guess = TRUE
-        break
+while (correct_guess == FALSE){if (guess > x){ #while statement for when the guess is wrong and higher than random number
+        print("LOWER") #prints lower 
+        attempt = attempts + 1 #adds an attempt in the case of an incorrect guess
+        guess <- as.integer(readline(prompt="Guess: ")) #prompts and takes input for another guess after the incorrect guess
+      }else if (guess < x){ #conditional for guess being lower than random number
+        print("HIGHER") #prints higher
+        attempt = attempts + 1 #adds an attempt in the case of an incorrect guess
+        guess <- as.integer(readline(prompt="Guess: ")) #prompts and takes input for another guess after the incorrect guess
+      }else if (guess ==x){ #conditional for if guess is correct 
+        print("Your guess was correct") #tells user guess is correct 
+        correct_guess = TRUE #specifies that the guess is correct 
+        break #ends the while statement 
       }
   }
 
