@@ -15,19 +15,27 @@ guess <- as.integer(readline(prompt="Guess: ")) #allow entry of guess
 correct_guess = FALSE #create variable that sets guess as false in order to repeat prompt for user to guess if guess is false 
 attempts = 0 #create variable for the number of attempts
 
-while (correct_guess == FALSE){if (guess > x){ #while statement for when the guess is wrong and higher than random number
-        print("LOWER") #prints lower 
-        attempt = attempts + 1 #adds an attempt in the case of an incorrect guess
-        guess <- as.integer(readline(prompt="Guess: ")) #prompts and takes input for another guess after the incorrect guess
-      }else if (guess < x){ #conditional for guess being lower than random number
-        print("HIGHER") #prints higher
-        attempt = attempts + 1 #adds an attempt in the case of an incorrect guess
-        guess <- as.integer(readline(prompt="Guess: ")) #prompts and takes input for another guess after the incorrect guess
-      }else if (guess ==x){ #conditional for if guess is correct 
-        print("Your guess was correct") #tells user guess is correct 
-        correct_guess = TRUE #specifies that the guess is correct 
-        break #ends the while statement 
-      }
-  }
+while (correct_guess == FALSE){
+  if (guess > x){ #while statement for when the guess is wrong and higher than random number
+  print("LOWER") #prints lower 
+  attempts = attempts + 1 #adds an attempt in the case of an incorrect guess
+  guess <- as.integer(readline(prompt="Guess: ")) #prompts and takes input for another guess after the incorrect guess
+}else if (guess < x){ #conditional for guess being lower than random number
+  print("HIGHER") #prints higher
+  attempts = attempts + 1 #adds an attempt in the case of an incorrect guess
+  guess <- as.integer(readline(prompt="Guess: ")) #prompts and takes input for another guess after the incorrect guess
+}else if (guess ==x){ #conditional for if guess is correct 
+  print("Your guess was correct") #tells user guess is correct 
+  correct_guess = TRUE #specifies that the guess is correct 
+  break #ends the while statement 
+}
+  
+}
+while (attempts > 10){ #desribes condition to end guesses 
+  print("You have exceeded the guess limit") #prints to tell the user the guess limit of 10 is exceeded
+  break #ends the while statement 
+}
 
 
+
+  
